@@ -1,0 +1,30 @@
+{
+  "key": "entity.bosses_of_mass_destruction.gauntlet",
+  "type": "translation",
+  "mod_id": "bosses_of_mass_destruction",
+
+  "health_background": "enhanced_boss_bars:health_bars/red_background.png",
+  "health_color": "enhanced_boss_bars:health_bars/red_progress.png",
+  "overlay": "enhanced_boss_bars:overlays/bomd/nethergauntlet.png",
+
+  "second_phase_background": null,
+  "second_phase_color": null,
+  "second_phase_overlay": null,
+
+  "health_width": 182,
+  "health_height": 5,
+  "health_y": 11,
+
+  "overlay_width": 202,
+  "overlay_height": 26,
+  "overlay_offset_x": 0,
+  "overlay_offset_y": 0,
+
+  "health_texture_coord_x": 0,
+  "health_texture_coord_y": 0,
+
+  "overlay_texture_coord_x": 0,
+  "overlay_texture_coord_y": 0,
+
+  "threshold_phase": 0.0
+}

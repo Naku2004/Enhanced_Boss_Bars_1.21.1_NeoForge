@@ -1,0 +1,30 @@
+{
+  "key": "Slider",
+  "type": "contains",
+  "mod_id": "aether",
+
+  "health_background": "enhanced_boss_bars:health_bars/blue_background.png",
+  "health_color": "enhanced_boss_bars:health_bars/blue_progress.png",
+  "overlay": "enhanced_boss_bars:overlays/aether/slider.png",
+
+  "second_phase_background": "enhanced_boss_bars:health_bars/red_background.png",
+  "second_phase_color": "enhanced_boss_bars:health_bars/red_progress.png",
+  "second_phase_overlay": "enhanced_boss_bars:overlays/aether/slider_critical.png",
+
+  "health_width": 182,
+  "health_height": 5,
+  "health_y": 5,
+
+  "overlay_width": 190,
+  "overlay_height": 23,
+  "overlay_offset_x": 0,
+  "overlay_offset_y": 0,
+
+  "health_texture_coord_x": 0,
+  "health_texture_coord_y": 0,
+
+  "overlay_texture_coord_x": 0,
+  "overlay_texture_coord_y": 0,
+
+  "threshold_phase": 0.25
+}
