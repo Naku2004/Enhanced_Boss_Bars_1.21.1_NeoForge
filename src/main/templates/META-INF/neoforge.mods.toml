@@ -71,5 +71,12 @@ New improved boss bars!
     ordering="NONE"
     side="BOTH"
 
+[[dependencies.${mod_id}]]
+modId="cloth_config"
+type="required"
+versionRange="[15.0.140,)"
+ordering="NONE"
+side="CLIENT"
+
 [[mixins]]
     config="enhanced_boss_bars.mixins.json"
