@@ -2,10 +2,13 @@ package com.nakuring.enhanced_boss_bars.config;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonParseException;
+import com.nakuring.enhanced_boss_bars.EnhancedBossBars;
 
 import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
@@ -22,38 +25,38 @@ public final class ConfigStorage {
             return new Config();
         }
 
-        try (Reader reader = Files.newBufferedReader(file)) {
-
+        try (Reader reader = Files.newBufferedReader(file, StandardCharsets.UTF_8)) {
             Config config = GSON.fromJson(reader, Config.class);
-
-            return config != null
-                    ? config
-                    : new Config();
-
-        } catch (IOException e) {
-
-            e.printStackTrace();
+            return ConfigManager.normalize(config != null ? config : new Config());
+        } catch (IOException | JsonParseException e) {
+            EnhancedBossBars.LOGGER.error(
+                    "No se pudo cargar la configuración desde {}",
+                    file,
+                    e
+            );
             return new Config();
-
         }
-
     }
 
-    public static void save(
-            Path file,
-            Config config
-    ) {
+    public static void save(Path file, Config config) {
         try {
-
-            Files.createDirectories(file.getParent());
-
-            try (Writer writer = Files.newBufferedWriter(file)) {
-                GSON.toJson(config, writer);
+            Path parent = file.getParent();
+            if (parent != null) {
+                Files.createDirectories(parent);
             }
 
+            try (Writer writer = Files.newBufferedWriter(
+                    file,
+                    StandardCharsets.UTF_8
+            )) {
+                GSON.toJson(config, writer);
+            }
         } catch (IOException e) {
-            e.printStackTrace();
+            EnhancedBossBars.LOGGER.error(
+                    "No se pudo guardar la configuración en {}",
+                    file,
+                    e
+            );
         }
     }
-
 }

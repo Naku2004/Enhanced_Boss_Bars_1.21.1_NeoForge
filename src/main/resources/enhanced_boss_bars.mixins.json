@@ -4,7 +4,8 @@
   "package": "com.nakuring.enhanced_boss_bars.mixins",
   "compatibilityLevel": "JAVA_21",
   "client": [
-    "BossHealthOverlayAccessor"
+    "BossHealthOverlayAccessor",
+    "ClothConfigScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -6,6 +6,7 @@ import com.nakuring.enhanced_boss_bars.interfaces.Platform;
 import com.nakuring.enhanced_boss_bars.util.BossBarKey;
 
 import java.nio.file.Path;
+import java.util.HashMap;
 
 public final class ConfigManager {
 
@@ -15,7 +16,7 @@ public final class ConfigManager {
     private ConfigManager() {}
 
     public static void initialize(Platform platform) {
-        config_file = platform.configFile();
+        config_file = platform.configFile().resolve("enhanced_boss_bars.json");
         load();
     }
 
@@ -40,5 +41,35 @@ public final class ConfigManager {
                 key.id(),
                 id -> new BossBarConfig()
         );
+    }
+
+    static Config normalize(Config config) {
+        if (config.general == null) {
+            config.general = new GeneralConfig();
+        }
+
+        if (config.boss_bars == null) {
+            config.boss_bars = new HashMap<>();
+        }
+
+        GeneralConfig general = config.general;
+
+        if (general.horizontal_alignment == null) {
+            general.horizontal_alignment =
+                    GeneralConfig.HorizontalAlignment.Center;
+        }
+        if (general.vertical_direction == null) {
+            general.vertical_direction = GeneralConfig.VerticalDirection.Down;
+        }
+
+        general.position_x = Math.clamp(general.position_x, 0, 100);
+        general.position_y = Math.clamp(general.position_y, 0, 100);
+        general.max_boss_bars = Math.clamp(general.max_boss_bars, 1, 10);
+
+        config.boss_bars.replaceAll(
+                (key, value) -> value == null ? new BossBarConfig() : value
+        );
+
+        return config;
     }
 }

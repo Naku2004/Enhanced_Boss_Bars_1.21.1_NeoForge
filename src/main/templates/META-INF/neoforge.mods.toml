@@ -17,6 +17,8 @@ license="${mod_license}"
 # A list of mods - how many allowed here is determined by the individual mod loader
 [[mods]] #mandatory
 
+logoFile="icon.png"
+
 # The modid of the mod
 modId="${mod_id}" #mandatory
 
@@ -37,6 +39,9 @@ New improved boss bars!
 # The [[mixins]] block allows you to declare your mixin config to FML so that it gets loaded.
 #[[mixins]]
 #config="${mod_id}.mixins.json"
+
+[[mixins]]
+config="enhanced_boss_bars.mixins.json"
 
 # The [[accessTransformers]] block allows you to declare where your AT file is.
 # If this block is omitted, a fallback attempt will be made to load an AT from META-INF/accesstransformer.cfg
@@ -72,11 +77,9 @@ New improved boss bars!
     side="BOTH"
 
 [[dependencies.${mod_id}]]
-modId="cloth_config"
-type="required"
-versionRange="[15.0.140,)"
-ordering="NONE"
-side="CLIENT"
+    modId="cloth_config"
+    type="required"
 
-[[mixins]]
-    config="enhanced_boss_bars.mixins.json"
+    versionRange="[15.0.140,)"
+    ordering="NONE"
+    side="CLIENT"
