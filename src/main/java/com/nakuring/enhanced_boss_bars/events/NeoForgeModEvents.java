@@ -1,9 +1,11 @@
-package com.nakuring.enhanced_boss_bars;
+package com.nakuring.enhanced_boss_bars.events;
 
+import com.nakuring.enhanced_boss_bars.BossBarsReloadListener;
+import com.nakuring.enhanced_boss_bars.EnhancedBossBars;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.client.event.RegisterClientReloadListenersEvent;
 
-public class NeoForgeEvents {
+public class NeoForgeModEvents {
 
     @SubscribeEvent
     public static void registerClientReloadListeners(

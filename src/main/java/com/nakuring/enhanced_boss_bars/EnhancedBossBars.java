@@ -1,10 +1,13 @@
 package com.nakuring.enhanced_boss_bars;
 
 import com.mojang.logging.LogUtils;
+import com.nakuring.enhanced_boss_bars.events.NeoForgeClientEvents;
+import com.nakuring.enhanced_boss_bars.events.NeoForgeModEvents;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.ModList;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.common.NeoForge;
 import org.slf4j.Logger;
 
 @Mod(EnhancedBossBars.MODID)
@@ -21,8 +24,11 @@ public class EnhancedBossBars {
     ) {
 
         modEventBus.register(
-                NeoForgeEvents.class
+                NeoForgeModEvents.class
         );
+        NeoForge.EVENT_BUS.register(NeoForgeClientEvents.class);
+
+
     }
 
     public static String getModName(String modId) {

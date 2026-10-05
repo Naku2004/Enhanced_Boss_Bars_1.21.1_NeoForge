@@ -70,3 +70,6 @@ New improved boss bars!
     versionRange="${minecraft_version_range}"
     ordering="NONE"
     side="BOTH"
+
+[[mixins]]
+    config="enhanced_boss_bars.mixins.json"

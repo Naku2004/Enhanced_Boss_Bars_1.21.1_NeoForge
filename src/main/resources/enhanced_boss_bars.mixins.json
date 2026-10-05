@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.nakuring.enhanced_boss_bars.mixins",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "BossHealthOverlayAccessor"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
