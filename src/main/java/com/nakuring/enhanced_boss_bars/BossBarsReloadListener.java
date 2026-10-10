@@ -20,7 +20,7 @@ public class BossBarsReloadListener
 
         LOGGER.info("BossBarsReloadListener reloading...");
 
-        //BossBarsManager.clear();
+        BossBarsManager.clear();
 
         BossBarsLoader.load(
                 manager,

@@ -1,17 +1,16 @@
 package com.nakuring.enhanced_boss_bars.events;
 
-import com.nakuring.enhanced_boss_bars.EnhancedBossBars;
+import com.mojang.blaze3d.systems.RenderSystem;
 import com.nakuring.enhanced_boss_bars.implementation.NeoForgeBossBarGraphics;
 import com.nakuring.enhanced_boss_bars.implementation.NeoForgeBossBars;
-import com.nakuring.enhanced_boss_bars.mixins.BossHealthOverlayAccessor;
+import com.nakuring.enhanced_boss_bars.mixins.BossHealthOverlayMixin;
 import com.nakuring.enhanced_boss_bars.render.BossBarRenderPipeline;
-import com.nakuring.enhanced_boss_bars.render.interfaces.BossBar;
 import com.nakuring.enhanced_boss_bars.render.interfaces.BossBars;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.resources.ResourceLocation;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.client.event.CustomizeGuiOverlayEvent;
+import net.neoforged.neoforge.client.event.RenderGuiLayerEvent;
+import net.neoforged.neoforge.client.gui.VanillaGuiLayers;
 import org.spongepowered.asm.mixin.Unique;
 
 public final class NeoForgeClientEvents {
@@ -26,34 +25,30 @@ public final class NeoForgeClientEvents {
     public static void onBossBarRender(
             CustomizeGuiOverlayEvent.BossEventProgress event
     ) {
+        if (Minecraft.getInstance().player == null) return;
+        event.setCanceled(true);
+    }
+
+    @SubscribeEvent
+    public static void onBossOverlayLayerRender(RenderGuiLayerEvent.Pre event) {
+        if (!event.getName().equals(VanillaGuiLayers.BOSS_OVERLAY)) {
+            return;
+        }
+
         Minecraft minecraft = Minecraft.getInstance();
         if (minecraft.player == null) return;
 
         BossBars bars = new NeoForgeBossBars(
-                ((BossHealthOverlayAccessor) minecraft.gui.getBossOverlay())
+                ((BossHealthOverlayMixin) minecraft.gui.getBossOverlay())
                         .enhancedBossBars$getEvents()
         );
 
-        // Este evento corresponde a una barra por vez.
-        // Cancela el dibujo vanilla y ejecuta tu pipeline solo una vez.
-        if (!bars.uuids().isEmpty()) {
-            event.setCanceled(true);
-
-        }
-
-        EnhancedBossBars.LOGGER.info(
-                "Cancelling event..."
-        );
-
-        for (BossBar bar : bars.getBossBars(5)) {
-            EnhancedBossBars.LOGGER.info("Found: {}", bar.name());
-        }
+        RenderSystem.enableBlend();
+        RenderSystem.defaultBlendFunc();
 
         graphics.begin(event.getGuiGraphics());
+        pipeline.run(graphics, bars);
 
-        pipeline.run(
-                graphics,
-                bars
-        );
+        RenderSystem.disableBlend();
     }
 }

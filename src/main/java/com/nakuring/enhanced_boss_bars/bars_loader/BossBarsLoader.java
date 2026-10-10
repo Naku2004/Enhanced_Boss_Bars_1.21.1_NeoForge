@@ -70,6 +70,7 @@ public class BossBarsLoader {
                         ),
 
                         new BossBarData(
+                                json.author,
                                 json.mod_id,
 
                                 json.health_background,
@@ -109,6 +110,7 @@ public class BossBarsLoader {
             }
         }
 
-        BossBarsManager.sortBossBars();
+        BossBarsManager.applyAuthorSelections();
+        BossBarsManager.sortBossBarDefinitions();
     }
 }

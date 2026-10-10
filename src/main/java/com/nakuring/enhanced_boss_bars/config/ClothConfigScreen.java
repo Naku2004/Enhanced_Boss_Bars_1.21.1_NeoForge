@@ -3,6 +3,7 @@ package com.nakuring.enhanced_boss_bars.config;
 import com.nakuring.enhanced_boss_bars.BossBarsManager;
 import com.nakuring.enhanced_boss_bars.config.util.BossBarConfig;
 import com.nakuring.enhanced_boss_bars.config.util.GeneralConfig;
+import com.nakuring.enhanced_boss_bars.util.BossBarData;
 import me.shedaniel.clothconfig2.api.ConfigBuilder;
 import me.shedaniel.clothconfig2.api.ConfigCategory;
 import me.shedaniel.clothconfig2.api.ConfigEntryBuilder;
@@ -12,6 +13,7 @@ import net.minecraft.network.chat.Component;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import static com.nakuring.enhanced_boss_bars.EnhancedBossBars.getModName;
 
@@ -155,6 +157,68 @@ public class ClothConfigScreen {
 
         Map<String, ConfigCategory> categories = new LinkedHashMap<>();
 
+        BossBarsManager.getAllBossBarDefinitions()
+                .forEach((key, definitions) -> {
+                    BossBarData boss_bar = definitions.getFirst();
+                    BossBarConfig bar_config = ConfigManager.barConfig(key);
+                    String mod_id = boss_bar.mod_id();
+                    String mod_name = getModName(mod_id);
+                    String boss_name_key = key.value();
+
+                    ConfigCategory category = categories.computeIfAbsent(
+                            mod_id,
+                            modId -> builder.getOrCreateCategory(
+                                    Component.literal(mod_name)
+                            )
+                    );
+
+                    BooleanListEntry enabled_entry = entryBuilder
+                            .startBooleanToggle(
+                                    Component.literal("Enabled"),
+                                    bar_config.enabled
+                            )
+                            .setDefaultValue(true)
+                            .setSaveConsumer(value -> bar_config.enabled = value)
+                            .build();
+
+                    List<String> authors = definitions.stream()
+                            .map(BossBarData::author)
+                            .filter(Objects::nonNull)
+                            .distinct()
+                            .toList();
+
+                    if (authors.size() > 1) {
+                        String selected_author = authors.contains(bar_config.selected_author)
+                                ? bar_config.selected_author
+                                : authors.getFirst();
+
+                        var author_entry = entryBuilder.startSelector(
+                                        Component.literal("Author"),
+                                        authors.toArray(new String[0]),
+                                        selected_author
+                                )
+                                .setSaveConsumer(value -> bar_config.selected_author = (String) value)
+                                .build();
+
+                        category.addEntry(
+                                entryBuilder.startSubCategory(
+                                                Component.translatable(boss_name_key),
+                                                List.of(enabled_entry, author_entry)
+                                        )
+                                        .build()
+                        );
+                    } else {
+                        category.addEntry(
+                                entryBuilder.startSubCategory(
+                                                Component.translatable(boss_name_key),
+                                                List.of(enabled_entry)
+                                        )
+                                        .build()
+                        );
+                    }
+                });
+
+        /*
         BossBarsManager.getBossBars()
                 .forEach((key, boss_bar) -> {
                     BossBarConfig bar_config = ConfigManager.barConfig(key);
@@ -177,7 +241,9 @@ public class ClothConfigScreen {
                                     .setSaveConsumer(value -> bar_config.enabled = value)
                                     .build()
                     );
+
                 });
+         */
 
         builder.setSavingRunnable(ConfigManager::save);
 

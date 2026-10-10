@@ -23,7 +23,7 @@ public final class NeoForgeBossBars implements BossBars {
 
     @Override
     public Iterable<BossBar> getBossBars(int limit) {
-        List<BossBar> result = new ArrayList<>();
+        List<BossBar> boss_bars = new ArrayList<>();
         int count = 0;
 
         for (LerpingBossEvent bar : clientBossBars.values()) {
@@ -31,7 +31,7 @@ public final class NeoForgeBossBars implements BossBars {
                 break;
             }
 
-            result.add(new BossBar(
+            boss_bars.add(new BossBar(
                     bar.getId(),
                     getKey(bar),
                     bar.getColor().getName(),
@@ -41,7 +41,7 @@ public final class NeoForgeBossBars implements BossBars {
             count++;
         }
 
-        return result;
+        return boss_bars;
     }
 
     @Override

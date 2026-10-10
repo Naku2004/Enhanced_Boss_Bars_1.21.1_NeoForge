@@ -3,6 +3,7 @@ package com.nakuring.enhanced_boss_bars.util;
 import net.minecraft.resources.ResourceLocation;
 
 public record BossBarData(
+        String author,
         String mod_id,
 
         ResourceLocation health_background,

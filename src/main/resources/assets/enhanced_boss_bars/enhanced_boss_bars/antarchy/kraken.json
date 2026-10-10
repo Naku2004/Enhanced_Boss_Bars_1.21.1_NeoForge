@@ -1,6 +1,7 @@
 {
-  "key": "The Kraken",
-  "type": "contains",
+  "author": "Antarchy",
+  "key": "entity.antarchy.kraken",
+  "type": "translation",
   "mod_id": "antarchy",
 
   "health_background": "enhanced_boss_bars:health_bars/blue_background.png",
