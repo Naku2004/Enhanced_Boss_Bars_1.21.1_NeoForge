@@ -29,7 +29,8 @@ public class BossBarRenderPipeline {
                 new BossBarRenderContext(
                         config,
                         graphics.screenWidth(),
-                        graphics.screenHeight()
+                        graphics.screenHeight(),
+                        graphics.effectiveScale(config.scale)
                 );
 
         List<PreparedBossBar> prepared_boss_bars = new ArrayList<>();
@@ -47,6 +48,13 @@ public class BossBarRenderPipeline {
         }
 
         render_context.prepare(prepared_boss_bars);
+
+
+        graphics.pushScale(
+                graphics.effectiveScale(config.scale),
+                render_context.x(),
+                render_context.y()
+        );
 
         for (PreparedBossBar prepared_boss_bar : prepared_boss_bars) {
 
@@ -73,6 +81,8 @@ public class BossBarRenderPipeline {
 
             render_context.advance(boss_bar_entry);
         }
+
+        graphics.popPose();
 
         SecondPhaseManager.cleanup(client_boss_bars.uuids());
     }

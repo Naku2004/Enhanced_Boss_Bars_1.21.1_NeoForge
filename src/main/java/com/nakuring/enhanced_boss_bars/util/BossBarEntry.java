@@ -1,7 +1,5 @@
 package com.nakuring.enhanced_boss_bars.util;
 
-//import com.nakuring.enhanced_boss_bars.config.ConfigManager;
-
 import com.nakuring.enhanced_boss_bars.config.ConfigManager;
 
 public record BossBarEntry(
@@ -13,5 +11,4 @@ public record BossBarEntry(
     public boolean isEnabled() {
         return ConfigManager.barConfig(key).enabled;
     }
-
 }

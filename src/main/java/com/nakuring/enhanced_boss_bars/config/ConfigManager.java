@@ -62,6 +62,7 @@ public final class ConfigManager {
             general.vertical_direction = GeneralConfig.VerticalDirection.Down;
         }
 
+        general.scale = Math.clamp(general.scale, 1, 4);
         general.position_x = Math.clamp(general.position_x, 0, 100);
         general.position_y = Math.clamp(general.position_y, 0, 100);
         general.max_boss_bars = Math.clamp(general.max_boss_bars, 1, 10);

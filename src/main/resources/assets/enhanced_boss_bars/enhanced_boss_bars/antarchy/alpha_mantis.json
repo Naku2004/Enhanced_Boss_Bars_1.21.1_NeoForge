@@ -16,9 +16,9 @@
   "health_height": 5,
   "health_y": 28,
 
-  "overlay_width": 238,
+  "overlay_width": 205,
   "overlay_height": 49,
-  "overlay_offset_x": 0,
+  "overlay_offset_x": -1,
   "overlay_offset_y": 0,
 
   "health_texture_coord_x": 0,

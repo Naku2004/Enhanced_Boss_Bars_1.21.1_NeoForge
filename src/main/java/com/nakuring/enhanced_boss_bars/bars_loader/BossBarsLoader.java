@@ -101,7 +101,6 @@ public class BossBarsLoader {
                 );
 
             } catch (Exception e) {
-
                 LOGGER.error(
                         "Couldn't load boss bar {}",
                         entry.getKey(),

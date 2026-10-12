@@ -20,6 +20,7 @@ import static com.nakuring.enhanced_boss_bars.EnhancedBossBars.getModName;
 public class ClothConfigScreen {
 
     private static me.shedaniel.clothconfig2.gui.ClothConfigScreen current_screen;
+    public static IntegerSliderEntry scale_entry;
     public static IntegerSliderEntry horizontal_position_entry;
     public static IntegerSliderEntry vertical_position_entry;
     public static EnumListEntry horizontal_alignment_entry;
@@ -45,6 +46,17 @@ public class ClothConfigScreen {
         ConfigCategory general = builder.getOrCreateCategory(
                 Component.literal("General")
         );
+
+        scale_entry = entryBuilder
+                .startIntSlider(
+                        Component.literal("Boss bar scale"),
+                        general_config.scale,
+                        1,
+                        4
+                )
+                .setDefaultValue(1)
+                .setSaveConsumer(value -> general_config.scale = value)
+                .build();
 
         horizontal_position_entry = entryBuilder
                 .startIntSlider(
@@ -128,16 +140,19 @@ public class ClothConfigScreen {
                                 vertical_direction_entry
                         )
                 )
+                .setExpanded(true)
                 .build();
 
 
         SubCategoryListEntry boss_bars = entryBuilder
                 .startSubCategory(
-                        Component.literal("Boss Bars"),
+                        Component.literal("Boss bars"),
                         List.of(
+                                scale_entry,
                                 max_boss_bars_entry
                         )
                 )
+                .setExpanded(true)
                 .build();
 
 
@@ -149,6 +164,7 @@ public class ClothConfigScreen {
                                 max_boss_bars_preview_entry
                         )
                 )
+                .setExpanded(true)
                 .build();
 
         general.addEntry(position);
@@ -245,7 +261,10 @@ public class ClothConfigScreen {
                 });
          */
 
-        builder.setSavingRunnable(ConfigManager::save);
+        builder.setSavingRunnable(() -> {
+            BossBarsManager.applyAuthorSelections();
+            ConfigManager.save();
+        });
 
         me.shedaniel.clothconfig2.gui.ClothConfigScreen screen = (me.shedaniel.clothconfig2.gui.ClothConfigScreen) builder.build();
 

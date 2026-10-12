@@ -60,6 +60,24 @@ public class NeoForgeBossBarGraphics implements BossBarGraphics {
         requireGraphics().drawString(font, text, x, y, color, shadow);
     }
 
+    @Override
+    public void pushScale(float scale, float centerX, float centerY) {
+        var pose = requireGraphics().pose();
+        pose.pushPose();
+        pose.translate(centerX, centerY, 0);
+        pose.scale(scale, scale, 1.0f);
+        pose.translate(-centerX, -centerY, 0);
+    }
+
+    @Override
+    public void popPose() {
+        requireGraphics().pose().popPose();
+    }
+
+    public float effectiveScale(int modScale) {
+        return modScale / (float) minecraft.getWindow().getGuiScale();
+    }
+
     private GuiGraphics requireGraphics() {
         if (graphics == null) {
             throw new IllegalStateException(
