@@ -31,7 +31,14 @@ public abstract class ClothConfigScreenMixin {
 
         graphics.begin(guiGraphics);
 
+        guiGraphics.flush();
+
+        guiGraphics.pose().pushPose();
+        guiGraphics.pose().translate(0, 0, 1000);
         BossBarPreviewRenderer.render(graphics);
+        guiGraphics.pose().popPose();
+
+        guiGraphics.flush();
     }
 
 }

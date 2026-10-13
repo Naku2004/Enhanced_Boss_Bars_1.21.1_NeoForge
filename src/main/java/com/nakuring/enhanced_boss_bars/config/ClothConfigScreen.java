@@ -54,7 +54,7 @@ public class ClothConfigScreen {
                         1,
                         4
                 )
-                .setDefaultValue(1)
+                .setDefaultValue(3)
                 .setSaveConsumer(value -> general_config.scale = value)
                 .build();
 

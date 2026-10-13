@@ -7,6 +7,7 @@ import com.nakuring.enhanced_boss_bars.mixins.BossHealthOverlayMixin;
 import com.nakuring.enhanced_boss_bars.render.BossBarRenderPipeline;
 import com.nakuring.enhanced_boss_bars.render.interfaces.BossBars;
 import net.minecraft.client.Minecraft;
+import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.client.event.CustomizeGuiOverlayEvent;
 import net.neoforged.neoforge.client.event.RenderGuiLayerEvent;
@@ -21,10 +22,8 @@ public final class NeoForgeClientEvents {
     @Unique
     private static final NeoForgeBossBarGraphics graphics = new NeoForgeBossBarGraphics();
 
-    @SubscribeEvent
-    public static void onBossBarRender(
-            CustomizeGuiOverlayEvent.BossEventProgress event
-    ) {
+    @SubscribeEvent(priority = EventPriority.HIGHEST)
+    public static void onBossBarRender(CustomizeGuiOverlayEvent.BossEventProgress event) {
         if (Minecraft.getInstance().player == null) return;
         event.setCanceled(true);
     }
