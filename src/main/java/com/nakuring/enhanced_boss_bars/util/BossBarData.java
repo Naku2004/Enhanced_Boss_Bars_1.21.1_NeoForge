@@ -6,9 +6,9 @@ public record BossBarData(
         String author,
         String mod_id,
 
-        ResourceLocation health_background,
-        ResourceLocation health_color,
-        ResourceLocation overlay,
+        ResourceLocation health_background_texture,
+        ResourceLocation health_color_texture,
+        ResourceLocation overlay_texture,
 
         int health_bar_width,
         int health_bar_height,
@@ -37,6 +37,9 @@ public record BossBarData(
         ResourceLocation second_phase_health_background_texture,
         ResourceLocation second_phase_health_color_texture,
         ResourceLocation second_phase_overlay_texture,
+
+        int second_phase_overlay_width,
+        int second_phase_overlay_height,
 
         int second_phase_health_background_texture_width,
         int second_phase_health_background_texture_height,

@@ -97,7 +97,7 @@ public class BossBarPreviewRenderer {
                     );
 
             graphics.drawTexture(
-                    data.health_color(),
+                    data.health_color_texture(),
                     layout.health_x(),
                     layout.health_y(),
                     0,
@@ -110,7 +110,7 @@ public class BossBarPreviewRenderer {
 
 
             graphics.drawTexture(
-                    data.overlay(),
+                    data.overlay_texture(),
                     layout.overlay_x(),
                     layout.overlay_y(),
                     0,

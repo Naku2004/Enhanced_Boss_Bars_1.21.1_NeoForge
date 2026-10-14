@@ -108,6 +108,9 @@ public class BossBarsLoader {
                                 json.second_phase_health_color_texture,
                                 json.second_phase_overlay_texture,
 
+                                json.second_phase_overlay_width,
+                                json.second_phase_overlay_height,
+
                                 json.second_phase_health_background_texture_width,
                                 json.second_phase_health_background_texture_height,
                                 json.second_phase_health_color_texture_width,
@@ -157,6 +160,13 @@ public class BossBarsLoader {
         }
         if (json.overlay_texture_height == null) {
             json.overlay_texture_height = json.overlay_height;
+        }
+
+        if (json.second_phase_overlay_width == null) {
+            json.second_phase_overlay_width = json.overlay_width;
+        }
+        if (json.second_phase_overlay_height == null) {
+            json.second_phase_overlay_height = json.overlay_height;
         }
 
         if (json.second_phase_health_background_texture_width == null) {

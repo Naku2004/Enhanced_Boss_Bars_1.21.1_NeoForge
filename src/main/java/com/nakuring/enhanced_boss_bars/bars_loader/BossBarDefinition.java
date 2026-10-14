@@ -42,6 +42,9 @@ public class BossBarDefinition {
     public ResourceLocation second_phase_health_color_texture = null;
     public ResourceLocation second_phase_overlay_texture = null;
 
+    public Integer second_phase_overlay_width;
+    public Integer second_phase_overlay_height;
+
     public Integer second_phase_health_background_texture_width;
     public Integer second_phase_health_background_texture_height;
     public Integer second_phase_health_color_texture_width;
