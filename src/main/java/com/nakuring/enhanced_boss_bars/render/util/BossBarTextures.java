@@ -14,9 +14,9 @@ public record BossBarTextures(
     ) {
         if (second_phase) {
             return new BossBarTextures(
-                    data.second_phase_background(),
-                    data.second_phase_color(),
-                    data.second_phase_overlay()
+                    data.second_phase_health_background_texture(),
+                    data.second_phase_health_color_texture(),
+                    data.second_phase_overlay_texture()
             );
         }
 

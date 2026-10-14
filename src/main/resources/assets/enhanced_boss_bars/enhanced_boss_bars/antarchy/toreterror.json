@@ -4,28 +4,14 @@
   "type": "translation",
   "mod_id": "antarchy",
 
-  "health_background": "enhanced_boss_bars:health_bars/green_background.png",
-  "health_color": "enhanced_boss_bars:health_bars/green_progress.png",
-  "overlay": "antarchy:textures/gui/boss_bars/toreterror.png",
+  "health_background_texture": "enhanced_boss_bars:health_bars/green_background.png",
+  "health_color_texture": "enhanced_boss_bars:health_bars/green_progress.png",
+  "overlay_texture": "antarchy:textures/gui/boss_bars/toreterror.png",
 
-  "second_phase_background": null,
-  "second_phase_color": null,
-  "second_phase_overlay": null,
-
-  "health_width": 182,
-  "health_height": 5,
-  "health_y": 28,
+  "health_bar_width": 182,
+  "health_bar_height": 5,
+  "health_offset_y": 28,
 
   "overlay_width": 194,
-  "overlay_height": 58,
-  "overlay_offset_x": 0,
-  "overlay_offset_y": 0,
-
-  "health_texture_coord_x": 0,
-  "health_texture_coord_y": 0,
-
-  "overlay_texture_coord_x": 0,
-  "overlay_texture_coord_y": 0,
-
-  "threshold_phase": 0
+  "overlay_height": 58
 }

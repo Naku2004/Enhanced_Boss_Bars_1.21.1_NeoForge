@@ -49,11 +49,11 @@ public record BossBarLayout(
                     context.x() - boss_bar.overlay_width() / 2;
         };
 
-        int health_x = x - boss_bar.health_width() / 2;
-        int health_y = y + boss_bar.health_y();
+        int health_x = x - boss_bar.health_bar_width() / 2 + boss_bar.health_offset_x();
+        int health_y = y + boss_bar.health_offset_y();
 
         int overlay_x = x - boss_bar.overlay_width() / 2 + boss_bar.overlay_offset_x();
-        int overlay_y = y;
+        int overlay_y = y + boss_bar.overlay_offset_y();
 
         int name_x = x - name_width / 2;
         int name_y = y - 4;
@@ -63,12 +63,12 @@ public record BossBarLayout(
 
         int right = Math.max(
                 overlay_x + boss_bar.overlay_width(),
-                health_x + boss_bar.health_width()
+                health_x + boss_bar.health_bar_width()
         );
 
         int bottom = Math.max(
                 overlay_y + boss_bar.overlay_height(),
-                health_y + boss_bar.health_height()
+                health_y + boss_bar.health_bar_height()
         );
 
         if (generic) {

@@ -1,0 +1,17 @@
+{
+  "author": "Naku",
+  "key": "entity.witherstormmod.wither_storm",
+  "type": "translation",
+  "mod_id": "witherstormmod",
+
+  "health_background_texture": "enhanced_boss_bars:health_bars/purple_background.png",
+  "health_color_texture": "enhanced_boss_bars:health_bars/purple_progress.png",
+  "overlay_texture": "enhanced_boss_bars:overlays/witherstorm/witherstorm.png",
+
+  "health_bar_width": 182,
+  "health_bar_height": 5,
+  "health_offset_y": 13,
+
+  "overlay_width": 256,
+  "overlay_height": 57
+}

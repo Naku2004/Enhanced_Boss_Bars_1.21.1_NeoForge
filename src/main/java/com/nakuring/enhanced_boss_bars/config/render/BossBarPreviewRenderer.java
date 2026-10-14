@@ -102,10 +102,10 @@ public class BossBarPreviewRenderer {
                     layout.health_y(),
                     0,
                     0,
-                    data.health_width(),
-                    data.health_height(),
-                    data.health_width(),
-                    data.health_height()
+                    data.health_bar_width(),
+                    data.health_bar_height(),
+                    data.health_bar_width(),
+                    data.health_bar_height()
             );
 
 
@@ -124,6 +124,6 @@ public class BossBarPreviewRenderer {
             context.advance(prepared.entry());
         }
 
-        graphics.popPose();
+        graphics.popScale();
     }
 }

@@ -82,7 +82,7 @@ public class BossBarRenderPipeline {
             render_context.advance(boss_bar_entry);
         }
 
-        graphics.popPose();
+        graphics.popScale();
 
         SecondPhaseManager.cleanup(client_boss_bars.uuids());
     }

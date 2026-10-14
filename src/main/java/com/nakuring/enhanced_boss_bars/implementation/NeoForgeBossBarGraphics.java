@@ -70,12 +70,12 @@ public class NeoForgeBossBarGraphics implements BossBarGraphics {
     }
 
     @Override
-    public void popPose() {
+    public void popScale() {
         requireGraphics().pose().popPose();
     }
 
-    public float effectiveScale(int modScale) {
-        return modScale / (float) minecraft.getWindow().getGuiScale();
+    public float effectiveScale(int scale) {
+        return scale / (float) minecraft.getWindow().getGuiScale();
     }
 
     private GuiGraphics requireGraphics() {

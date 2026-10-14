@@ -55,6 +55,8 @@ public class BossBarsLoader {
                                 BossBarDefinition.class
                         );
 
+                applyTextureSizeDefaults(json);
+
                 if (!platform.isModLoaded(json.mod_id)
                         && !Objects.equals(json.mod_id, "")
                         && !Objects.equals(json.mod_id, "minecraft")) {
@@ -73,28 +75,52 @@ public class BossBarsLoader {
                                 json.author,
                                 json.mod_id,
 
-                                json.health_background,
-                                json.health_color,
-                                json.overlay,
+                                json.health_background_texture,
+                                json.health_color_texture,
+                                json.overlay_texture,
 
-                                json.second_phase_background,
-                                json.second_phase_color,
-                                json.second_phase_overlay,
+                                json.health_bar_width,
+                                json.health_bar_height,
 
-                                json.health_width,
-                                json.health_height,
-                                json.health_y,
+                                json.health_offset_x,
+                                json.health_offset_y,
 
                                 json.overlay_width,
                                 json.overlay_height,
                                 json.overlay_offset_x,
                                 json.overlay_offset_y,
 
-                                json.health_texture_coord_x,
-                                json.health_texture_coord_y,
+                                json.health_background_texture_width,
+                                json.health_background_texture_height,
+                                json.health_color_texture_width,
+                                json.health_color_texture_height,
+                                json.overlay_texture_width,
+                                json.overlay_texture_height,
 
+                                json.health_background_texture_coord_x,
+                                json.health_background_texture_coord_y,
+                                json.health_color_texture_coord_x,
+                                json.health_color_texture_coord_y,
                                 json.overlay_texture_coord_x,
                                 json.overlay_texture_coord_y,
+
+                                json.second_phase_health_background_texture,
+                                json.second_phase_health_color_texture,
+                                json.second_phase_overlay_texture,
+
+                                json.second_phase_health_background_texture_width,
+                                json.second_phase_health_background_texture_height,
+                                json.second_phase_health_color_texture_width,
+                                json.second_phase_health_color_texture_height,
+                                json.second_phase_overlay_texture_width,
+                                json.second_phase_overlay_texture_height,
+
+                                json.second_phase_health_background_texture_coord_x,
+                                json.second_phase_health_background_texture_coord_y,
+                                json.second_phase_health_color_texture_coord_x,
+                                json.second_phase_health_color_texture_coord_y,
+                                json.second_phase_overlay_texture_coord_x,
+                                json.second_phase_overlay_texture_coord_y,
 
                                 json.threshold_phase
                         )
@@ -111,5 +137,45 @@ public class BossBarsLoader {
 
         BossBarsManager.applyAuthorSelections();
         BossBarsManager.sortBossBarDefinitions();
+    }
+
+    private static void applyTextureSizeDefaults(BossBarDefinition json) {
+        if (json.health_background_texture_width == null) {
+            json.health_background_texture_width = json.health_bar_width;
+        }
+        if (json.health_background_texture_height == null) {
+            json.health_background_texture_height = json.health_bar_height;
+        }
+        if (json.health_color_texture_width == null) {
+            json.health_color_texture_width = json.health_bar_width;
+        }
+        if (json.health_color_texture_height == null) {
+            json.health_color_texture_height = json.health_bar_height;
+        }
+        if (json.overlay_texture_width == null) {
+            json.overlay_texture_width = json.overlay_width;
+        }
+        if (json.overlay_texture_height == null) {
+            json.overlay_texture_height = json.overlay_height;
+        }
+
+        if (json.second_phase_health_background_texture_width == null) {
+            json.second_phase_health_background_texture_width = json.health_background_texture_width;
+        }
+        if (json.second_phase_health_background_texture_height == null) {
+            json.second_phase_health_background_texture_height = json.health_background_texture_height;
+        }
+        if (json.second_phase_health_color_texture_width == null) {
+            json.second_phase_health_color_texture_width = json.health_color_texture_width;
+        }
+        if (json.second_phase_health_color_texture_height == null) {
+            json.second_phase_health_color_texture_height = json.health_color_texture_height;
+        }
+        if (json.second_phase_overlay_texture_width == null) {
+            json.second_phase_overlay_texture_width = json.overlay_texture_width;
+        }
+        if (json.second_phase_overlay_texture_height == null) {
+            json.second_phase_overlay_texture_height = json.overlay_texture_height;
+        }
     }
 }

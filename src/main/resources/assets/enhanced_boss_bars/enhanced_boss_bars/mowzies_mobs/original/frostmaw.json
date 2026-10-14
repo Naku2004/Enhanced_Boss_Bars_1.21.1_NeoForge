@@ -1,0 +1,28 @@
+{
+  "author": "Mowzie's Mobs",
+  "key": "entity.mowziesmobs.frostmaw",
+  "type": "translation",
+  "mod_id": "mowziesmobs",
+
+  "health_background_texture": "mowziesmobs:textures/gui/boss_bar/frostmaw_bar_base.png",
+  "health_color_texture": "mowziesmobs:textures/gui/boss_bar/frostmaw_bar_base.png",
+  "overlay_texture": "mowziesmobs:textures/gui/boss_bar/frostmaw_bar_overlay.png",
+
+  "health_bar_width": 180,
+  "health_bar_height": 10,
+  "health_offset_y": 3,
+
+  "overlay_width": 188,
+  "overlay_height": 16,
+
+  "health_background_texture_width": 256,
+  "health_background_texture_height": 32,
+
+  "health_color_texture_width": 256,
+  "health_color_texture_height": 32,
+
+  "overlay_texture_width": 256,
+  "overlay_texture_height": 32,
+
+  "health_color_texture_coord_y": 10
+}

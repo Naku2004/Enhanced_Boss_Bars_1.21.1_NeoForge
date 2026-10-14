@@ -43,24 +43,24 @@ public class BossBarRender {
                 textures.background(),
                 layout.health_x(),
                 layout.health_y(),
-                boss_bar.health_texture_coord_x(),
-                boss_bar.health_texture_coord_y(),
-                boss_bar.health_width(),
-                boss_bar.health_height(),
-                boss_bar.health_width(),
-                boss_bar.health_height()
+                boss_bar.health_background_texture_coord_x(),
+                boss_bar.health_background_texture_coord_y(),
+                boss_bar.health_bar_width(),
+                boss_bar.health_bar_height(),
+                boss_bar.health_background_texture_width(),
+                boss_bar.health_background_texture_height()
         );
 
         bridge.drawTexture(
                 textures.progress(),
                 layout.health_x(),
                 layout.health_y(),
-                boss_bar.health_texture_coord_x(),
-                boss_bar.health_texture_coord_y(),
-                (int) (boss_bar.health_width() * percent),
-                boss_bar.health_height(),
-                boss_bar.health_width(),
-                boss_bar.health_height()
+                boss_bar.health_color_texture_coord_x(),
+                boss_bar.health_color_texture_coord_y(),
+                (int) (boss_bar.health_bar_width() * percent),
+                boss_bar.health_bar_height(),
+                boss_bar.health_color_texture_width(),
+                boss_bar.health_background_texture_height()
         );
     }
 
@@ -73,8 +73,8 @@ public class BossBarRender {
                 boss_bar.overlay_texture_coord_y(),
                 boss_bar.overlay_width(),
                 boss_bar.overlay_height(),
-                boss_bar.overlay_width(),
-                boss_bar.overlay_height()
+                boss_bar.overlay_texture_width(),
+                boss_bar.overlay_texture_height()
         );
     }
 

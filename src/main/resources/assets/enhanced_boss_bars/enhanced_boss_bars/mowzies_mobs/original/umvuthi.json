@@ -1,0 +1,31 @@
+{
+  "author": "Mowzie's Mobs",
+  "key": "entity.mowziesmobs.umvuthi",
+  "type": "translation",
+  "mod_id": "mowziesmobs",
+
+  "health_background_texture": "mowziesmobs:textures/gui/boss_bar/umvuthi_bar_base.png",
+  "health_color_texture": "mowziesmobs:textures/gui/boss_bar/umvuthi_bar_base.png",
+  "overlay_texture": "mowziesmobs:textures/gui/boss_bar/umvuthi_bar_overlay.png",
+
+  "health_bar_width": 182,
+  "health_bar_height": 4,
+  "health_offset_x": 7,
+  "health_offset_y": 5,
+
+  "overlay_width": 196,
+  "overlay_height": 14,
+
+  "health_background_texture_width": 256,
+  "health_background_texture_height": 8,
+
+  "health_color_texture_width": 256,
+  "health_color_texture_height": 8,
+
+  "overlay_texture_width": 256,
+  "overlay_texture_height": 16,
+
+  "health_color_texture_coord_y": 4,
+
+  "overlay_texture_coord_y": 1
+}

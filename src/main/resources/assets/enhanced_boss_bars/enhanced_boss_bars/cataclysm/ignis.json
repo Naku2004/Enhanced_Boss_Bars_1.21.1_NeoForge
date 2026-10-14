@@ -4,28 +4,20 @@
   "type": "translation",
   "mod_id": "cataclysm",
 
-  "health_background": "enhanced_boss_bars:health_bars/yellow_background.png",
-  "health_color": "enhanced_boss_bars:health_bars/yellow_progress.png",
-  "overlay": "enhanced_boss_bars:overlays/cataclysm/ignis.png",
+  "health_background_texture": "enhanced_boss_bars:health_bars/yellow_background.png",
+  "health_color_texture": "enhanced_boss_bars:health_bars/yellow_progress.png",
+  "overlay_texture": "enhanced_boss_bars:overlays/cataclysm/ignis.png",
 
-  "second_phase_background": "enhanced_boss_bars:health_bars/blue_background.png",
-  "second_phase_color": "enhanced_boss_bars:health_bars/blue_progress.png",
-  "second_phase_overlay": "enhanced_boss_bars:overlays/cataclysm/ignis_soul.png",
+  "second_phase_health_background_texture": "enhanced_boss_bars:health_bars/blue_background.png",
+  "second_phase_health_color_texture": "enhanced_boss_bars:health_bars/blue_progress.png",
+  "second_phase_overlay_texture": "enhanced_boss_bars:overlays/cataclysm/ignis_soul.png",
 
-  "health_width": 182,
-  "health_height": 5,
-  "health_y": 20,
+  "health_bar_width": 182,
+  "health_bar_height": 5,
+  "health_offset_y": 20,
 
   "overlay_width": 231,
   "overlay_height": 37,
-  "overlay_offset_x": 0,
-  "overlay_offset_y": 0,
-
-  "health_texture_coord_x": 0,
-  "health_texture_coord_y": 0,
-
-  "overlay_texture_coord_x": 0,
-  "overlay_texture_coord_y": 0,
 
   "threshold_phase": 0.67
 }
