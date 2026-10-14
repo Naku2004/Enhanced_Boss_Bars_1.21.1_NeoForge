@@ -24,12 +24,12 @@ public class BossBarDefinition {
     public int overlay_offset_x = 0;
     public int overlay_offset_y = 0;
 
-    public Integer health_background_texture_width = health_bar_width;
-    public Integer health_background_texture_height = health_bar_height;
-    public Integer health_color_texture_width = health_bar_width;;
-    public Integer health_color_texture_height = health_bar_height;;
-    public Integer overlay_texture_width = overlay_width;
-    public Integer overlay_texture_height = overlay_height;
+    public Integer health_background_texture_width;
+    public Integer health_background_texture_height;
+    public Integer health_color_texture_width;
+    public Integer health_color_texture_height;
+    public Integer overlay_texture_width;
+    public Integer overlay_texture_height;
 
     public int health_background_texture_coord_x = 0;
     public int health_background_texture_coord_y = 0;
@@ -42,15 +42,15 @@ public class BossBarDefinition {
     public ResourceLocation second_phase_health_color_texture = null;
     public ResourceLocation second_phase_overlay_texture = null;
 
-    public Integer second_phase_overlay_width = overlay_width;
-    public Integer second_phase_overlay_height = overlay_height;
+    public Integer second_phase_overlay_width;
+    public Integer second_phase_overlay_height;
 
-    public Integer second_phase_health_background_texture_width = health_background_texture_width;
-    public Integer second_phase_health_background_texture_height = health_background_texture_height;
-    public Integer second_phase_health_color_texture_width = health_color_texture_width;
-    public Integer second_phase_health_color_texture_height = health_color_texture_height;
-    public Integer second_phase_overlay_texture_width = overlay_texture_width;
-    public Integer second_phase_overlay_texture_height = overlay_texture_height;
+    public Integer second_phase_health_background_texture_width;
+    public Integer second_phase_health_background_texture_height;
+    public Integer second_phase_health_color_texture_width;
+    public Integer second_phase_health_color_texture_height;
+    public Integer second_phase_overlay_texture_width;
+    public Integer second_phase_overlay_texture_height;
 
     public int second_phase_health_background_texture_coord_x = 0;
     public int second_phase_health_background_texture_coord_y = 0;
