@@ -234,33 +234,6 @@ public class ClothConfigScreen {
                     }
                 });
 
-        /*
-        BossBarsManager.getBossBars()
-                .forEach((key, boss_bar) -> {
-                    BossBarConfig bar_config = ConfigManager.barConfig(key);
-                    String mod_id = boss_bar.mod_id();
-                    String mod_name = getModName(mod_id);
-                    String boss_name_key = key.value();
-
-                    ConfigCategory category = categories.computeIfAbsent(
-                            mod_id,
-                            modId -> builder.getOrCreateCategory(
-                                    Component.literal(mod_name)
-                            )
-                    );
-
-                    category.addEntry(
-                            entryBuilder.startBooleanToggle(
-                                            Component.translatable(boss_name_key), bar_config.enabled
-                                    )
-                                    .setDefaultValue(true)
-                                    .setSaveConsumer(value -> bar_config.enabled = value)
-                                    .build()
-                    );
-
-                });
-         */
-
         builder.setSavingRunnable(() -> {
             BossBarsManager.applyAuthorSelections();
             ConfigManager.save();

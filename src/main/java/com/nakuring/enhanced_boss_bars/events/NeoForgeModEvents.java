@@ -12,12 +12,8 @@ public class NeoForgeModEvents {
             RegisterClientReloadListenersEvent event
     ) {
 
-        EnhancedBossBars.LOGGER.info(
-                "Registering BossBarsReloadListener..."
-        );
+        EnhancedBossBars.LOGGER.info("Registering BossBarsReloadListener...");
 
-        event.registerReloadListener(
-                new BossBarsReloadListener()
-        );
+        event.registerReloadListener(new BossBarsReloadListener());
     }
 }

@@ -1,0 +1,17 @@
+{
+  "author": "Antarchy",
+  "key": "entity.antarchy.king",
+  "type": "translation",
+  "mod_id": "antarchy",
+
+  "health_background_texture": "antarchy:textures/gui/boss_bars/healthbars/king_background.png",
+  "health_color_texture": "antarchy:textures/gui/boss_bars/healthbars/king_progress.png",
+  "overlay_texture": "antarchy:textures/gui/boss_bars/king.png",
+
+  "health_bar_width": 182,
+  "health_bar_height": 5,
+  "health_offset_y": 35,
+
+  "overlay_width": 256,
+  "overlay_height": 67
+}

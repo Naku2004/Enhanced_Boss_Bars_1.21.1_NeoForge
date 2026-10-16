@@ -27,9 +27,8 @@ public final class NeoForgeBossBars implements BossBars {
         int count = 0;
 
         for (LerpingBossEvent bar : clientBossBars.values()) {
-            if (count >= limit) {
-                break;
-            }
+
+            if (count >= limit) break;
 
             boss_bars.add(new BossBar(
                     bar.getId(),

@@ -37,10 +37,7 @@ public final class NeoForgeClientEvents {
         Minecraft minecraft = Minecraft.getInstance();
         if (minecraft.player == null) return;
 
-        BossBars bars = new NeoForgeBossBars(
-                ((BossHealthOverlayMixin) minecraft.gui.getBossOverlay())
-                        .enhancedBossBars$getEvents()
-        );
+        BossBars bars = new NeoForgeBossBars(((BossHealthOverlayMixin) minecraft.gui.getBossOverlay()).enhancedBossBars$getEvents());
 
         RenderSystem.enableBlend();
         RenderSystem.defaultBlendFunc();

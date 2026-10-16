@@ -1,0 +1,23 @@
+{
+  "author": "Aquamirae",
+  "key": "entity.aquamirae.captain_cornelia",
+  "type": "translation",
+  "mod_id": "aquamirae",
+
+  "health_background_texture": "enhanced_boss_bars:health_bars/blue_background.png",
+  "health_color_texture": "enhanced_boss_bars:health_bars/blue_progress.png",
+  "overlay_texture": "aquamirae:textures/gui/overlay/captain_cornelia_bossbar.png",
+
+  "health_bar_width": 182,
+  "health_bar_height": 5,
+  "health_offset_y": 20,
+
+  "overlay_width": 236,
+  "overlay_height": 58,
+
+  "overlay_texture_width": 256,
+  "overlay_texture_height": 64,
+
+  "overlay_texture_coord_x": 10,
+  "overlay_texture_coord_y": 0
+}

@@ -1,0 +1,17 @@
+{
+  "author": "Antarchy",
+  "key": "entity.antarchy.queen",
+  "type": "translation",
+  "mod_id": "antarchy",
+
+  "health_background_texture": "antarchy:textures/gui/boss_bars/healthbars/queen_background.png",
+  "health_color_texture": "antarchy:textures/gui/boss_bars/healthbars/queen_progress.png",
+  "overlay_texture": "antarchy:textures/gui/boss_bars/queen.png",
+
+  "health_bar_width": 182,
+  "health_bar_height": 5,
+  "health_offset_y": 28,
+
+  "overlay_width": 253,
+  "overlay_height": 50
+}

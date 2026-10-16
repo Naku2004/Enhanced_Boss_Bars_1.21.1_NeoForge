@@ -81,7 +81,7 @@ public class NeoForgeBossBarGraphics implements BossBarGraphics {
     private GuiGraphics requireGraphics() {
         if (graphics == null) {
             throw new IllegalStateException(
-                    "Llama begin(GuiGraphics) antes de dibujar"
+                    "Call begin(GuiGraphics) before draw"
             );
         }
         return graphics;

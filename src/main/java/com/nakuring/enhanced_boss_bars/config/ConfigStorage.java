@@ -30,7 +30,7 @@ public final class ConfigStorage {
             return ConfigManager.normalize(config != null ? config : new Config());
         } catch (IOException | JsonParseException e) {
             EnhancedBossBars.LOGGER.error(
-                    "No se pudo cargar la configuración desde {}",
+                    "Can't load configuration from {}",
                     file,
                     e
             );
@@ -41,9 +41,8 @@ public final class ConfigStorage {
     public static void save(Path file, Config config) {
         try {
             Path parent = file.getParent();
-            if (parent != null) {
-                Files.createDirectories(parent);
-            }
+
+            if (parent != null) Files.createDirectories(parent);
 
             try (Writer writer = Files.newBufferedWriter(
                     file,
@@ -51,9 +50,10 @@ public final class ConfigStorage {
             )) {
                 GSON.toJson(config, writer);
             }
-        } catch (IOException e) {
+        }
+        catch (IOException e) {
             EnhancedBossBars.LOGGER.error(
-                    "No se pudo guardar la configuración en {}",
+                    "Can't save configuration on {}",
                     file,
                     e
             );
