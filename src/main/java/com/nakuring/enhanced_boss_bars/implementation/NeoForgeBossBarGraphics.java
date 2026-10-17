@@ -39,6 +39,8 @@ public class NeoForgeBossBarGraphics implements BossBarGraphics {
             int width, int height,
             int textureWidth, int textureHeight
     ) {
+        if (texture == null) return;
+
         requireGraphics().blit(
                 texture,
                 x, y,

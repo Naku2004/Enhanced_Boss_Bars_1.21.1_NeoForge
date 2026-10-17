@@ -5,5 +5,6 @@ import com.nakuring.enhanced_boss_bars.util.BossBarEntry;
 
 public record PreparedBossBar(
         BossBar client_boss_bar,
-        BossBarEntry entry
+        BossBarEntry entry,
+        BossBarTextures textures
 ) {}

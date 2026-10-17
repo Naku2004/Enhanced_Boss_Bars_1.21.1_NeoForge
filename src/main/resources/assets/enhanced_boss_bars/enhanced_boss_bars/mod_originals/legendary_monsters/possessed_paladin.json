@@ -1,0 +1,35 @@
+{
+  "author": "Legendary Monsters",
+  "key": "entity.legendary_monsters.posessed_paladin",
+  "type": "translation",
+  "mod_id": "legendary_monsters",
+
+  "health_background_texture": "legendary_monsters:textures/gui/boss_bar/possessed_bar_base.png",
+  "health_color_texture": "legendary_monsters:textures/gui/boss_bar/possessed_bar_base.png",
+  "overlay_texture": "legendary_monsters:textures/gui/boss_bar/possessed_bar_overlay_0.png",
+
+  "health_bar_width": 168,
+  "health_bar_height": 6,
+  "health_offset_y": 16,
+
+  "overlay_width": 186,
+  "overlay_height": 46,
+
+  "health_background_texture_width": 256,
+  "health_background_texture_height": 64,
+
+  "health_color_texture_width": 256,
+  "health_color_texture_height": 64,
+
+  "overlay_texture_width": 256,
+  "overlay_texture_height": 64,
+
+  "health_background_texture_coord_x": 5,
+  "health_background_texture_coord_y": 11,
+
+  "health_color_texture_coord_x": 5,
+  "health_color_texture_coord_y": 41,
+
+  "overlay_texture_coord_x": 0,
+  "overlay_texture_coord_y": 1
+}

@@ -9,6 +9,8 @@ public record BossBarTextures(
 
         int overlay_width,
         int overlay_height,
+        int overlay_offset_x,
+        int overlay_offset_y,
 
         int health_background_texture_width,
         int health_background_texture_height,
@@ -38,6 +40,8 @@ public record BossBarTextures(
 
                     data.second_phase_overlay_width(),
                     data.second_phase_overlay_height(),
+                    data.second_phase_overlay_offset_x(),
+                    data.second_phase_overlay_offset_y(),
 
                     data.second_phase_health_background_texture_width(),
                     data.second_phase_health_background_texture_height(),
@@ -62,6 +66,8 @@ public record BossBarTextures(
 
                 data.overlay_width(),
                 data.overlay_height(),
+                data.overlay_offset_x(),
+                data.overlay_offset_y(),
 
                 data.health_background_texture_width(),
                 data.health_background_texture_height(),

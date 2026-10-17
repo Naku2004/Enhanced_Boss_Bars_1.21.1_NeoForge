@@ -1,0 +1,30 @@
+{
+  "author": "Bosses' Rise (Simple)",
+  "key": "entity.block_factorys_bosses.kraken",
+  "type": "translation",
+  "mod_id": "block_factorys_bosses",
+
+  "health_color_texture": "block_factorys_bosses:textures/gui/bossbar/kraken/bar.png",
+  "overlay_texture": "block_factorys_bosses:textures/gui/bossbar/kraken/simple_phase_1.png",
+
+  "health_bar_width": 182,
+  "health_bar_height": 5,
+  "health_offset_y": 28,
+
+  "overlay_width": 260,
+  "overlay_height": 37,
+
+  "health_color_texture_width": 288,
+  "health_color_texture_height": 76,
+
+  "overlay_texture_width": 288,
+  "overlay_texture_height": 76,
+
+  "health_color_texture_coord_x": 53,
+  "health_color_texture_coord_y": 40,
+
+  "overlay_texture_coord_x": 14,
+  "overlay_texture_coord_y": 12,
+
+  "health_bar_before_overlay": false
+}

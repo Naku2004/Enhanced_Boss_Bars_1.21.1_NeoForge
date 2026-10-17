@@ -2,6 +2,7 @@ package com.nakuring.enhanced_boss_bars.config.util;
 
 public class GeneralConfig {
 
+    public boolean enhanced_boss_bars_enabled = true;
     public HorizontalAlignment horizontal_alignment = HorizontalAlignment.Center;
     public VerticalDirection vertical_direction = VerticalDirection.Down;
     public int position_x = 50;

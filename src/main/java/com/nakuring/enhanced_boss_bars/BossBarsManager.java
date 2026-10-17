@@ -66,10 +66,6 @@ public class BossBarsManager {
         return null;
     }
 
-    public static Map<BossBarKey, BossBarData> getBossBars(){
-        return boss_bars;
-    }
-
     public static void clear(){
         boss_bar_definitions.clear();
         boss_bars.clear();
@@ -97,6 +93,32 @@ public class BossBarsManager {
             config.selected_author = selected.author();
             boss_bars.put(key, selected);
         });
+    }
+
+    public static boolean migrateTranslatedConfigKeys() {
+        Map<String, BossBarConfig> configs = ConfigManager.config().boss_bars;
+        boolean migrated = false;
+
+        for (BossBarKey key : boss_bar_definitions.keySet()) {
+            if (key.type() != BossBarKey.Type.translation) {
+                continue;
+            }
+
+            String newId = key.value();
+            String oldId = Component.translatable(newId).getString();
+
+            if (newId.equals(oldId) || configs.containsKey(newId)) {
+                continue;
+            }
+
+            BossBarConfig oldConfig = configs.remove(oldId);
+            if (oldConfig != null) {
+                configs.put(newId, oldConfig);
+                migrated = true;
+            }
+        }
+
+        return migrated;
     }
 
     public static void sortBossBarDefinitions() {

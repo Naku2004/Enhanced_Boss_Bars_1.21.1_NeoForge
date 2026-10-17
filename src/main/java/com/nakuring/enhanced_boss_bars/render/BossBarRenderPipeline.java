@@ -2,7 +2,7 @@ package com.nakuring.enhanced_boss_bars.render;
 
 import com.nakuring.enhanced_boss_bars.config.ConfigManager;
 import com.nakuring.enhanced_boss_bars.config.util.GeneralConfig;
-import com.nakuring.enhanced_boss_bars.render.context.BossBarRenderContext;
+import com.nakuring.enhanced_boss_bars.render.context.BossBarStackLayout;
 import com.nakuring.enhanced_boss_bars.render.interfaces.BossBar;
 import com.nakuring.enhanced_boss_bars.render.interfaces.BossBarGraphics;
 import com.nakuring.enhanced_boss_bars.render.interfaces.BossBars;
@@ -25,8 +25,8 @@ public class BossBarRenderPipeline {
 
         GeneralConfig config = ConfigManager.generalConfig();
 
-        BossBarRenderContext render_context =
-                new BossBarRenderContext(
+        BossBarStackLayout stack_layout =
+                new BossBarStackLayout(
                         config,
                         graphics.screenWidth(),
                         graphics.screenHeight(),
@@ -41,19 +41,25 @@ public class BossBarRenderPipeline {
                     client_boss_bar.color()
             );
 
+            BossBarData boss_bar = entry.data();
+
+            Boolean second_phase = SecondPhaseManager.isSecondPhase(client_boss_bar.uuid(), boss_bar, client_boss_bar.percent());
+
+            BossBarTextures textures = BossBarTextures.resolve(boss_bar, second_phase);
+
             prepared_boss_bars.add(new PreparedBossBar(
                     client_boss_bar,
-                    entry
+                    entry,
+                    textures
             ));
         }
 
-        render_context.prepare(prepared_boss_bars);
-
+        stack_layout.prepare(prepared_boss_bars);
 
         graphics.pushScale(
                 graphics.effectiveScale(config.scale),
-                render_context.x(),
-                render_context.y()
+                stack_layout.getAnchorX(),
+                stack_layout.getCurrentBarY()
         );
 
         for (PreparedBossBar prepared_boss_bar : prepared_boss_bars) {
@@ -61,14 +67,11 @@ public class BossBarRenderPipeline {
             BossBar client_boss_bar = prepared_boss_bar.client_boss_bar();
             BossBarEntry boss_bar_entry = prepared_boss_bar.entry();
             BossBarData boss_bar = boss_bar_entry.data();
+            BossBarTextures textures = prepared_boss_bar.textures();
 
             int name_width = graphics.textWidth(client_boss_bar.name());
 
-            BossBarLayout layout = BossBarLayout.calculateCoords(render_context, boss_bar, name_width, boss_bar_entry.generic());
-
-            Boolean second_phase = SecondPhaseManager.isSecondPhase(client_boss_bar.uuid(), boss_bar, client_boss_bar.percent());
-
-            BossBarTextures textures = BossBarTextures.resolve(boss_bar, second_phase);
+            BossBarLayout layout = BossBarLayout.calculateCoords(stack_layout, boss_bar, textures, name_width, boss_bar_entry.generic());
 
             render.draw(
                     graphics,
@@ -79,7 +82,7 @@ public class BossBarRenderPipeline {
                     client_boss_bar.name()
             );
 
-            render_context.advance(boss_bar_entry);
+            stack_layout.advanceToNextBar(prepared_boss_bar);
         }
 
         graphics.popScale();

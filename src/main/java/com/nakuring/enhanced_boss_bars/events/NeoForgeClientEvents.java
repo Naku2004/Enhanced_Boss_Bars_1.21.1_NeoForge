@@ -1,6 +1,7 @@
 package com.nakuring.enhanced_boss_bars.events;
 
 import com.mojang.blaze3d.systems.RenderSystem;
+import com.nakuring.enhanced_boss_bars.config.ConfigManager;
 import com.nakuring.enhanced_boss_bars.implementation.NeoForgeBossBarGraphics;
 import com.nakuring.enhanced_boss_bars.implementation.NeoForgeBossBars;
 import com.nakuring.enhanced_boss_bars.mixins.BossHealthOverlayMixin;
@@ -24,7 +25,7 @@ public final class NeoForgeClientEvents {
 
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     public static void onBossBarRender(CustomizeGuiOverlayEvent.BossEventProgress event) {
-        if (Minecraft.getInstance().player == null) return;
+        if (Minecraft.getInstance().player == null || !ConfigManager.generalConfig().enhanced_boss_bars_enabled) return;
         event.setCanceled(true);
     }
 
@@ -35,7 +36,7 @@ public final class NeoForgeClientEvents {
         }
 
         Minecraft minecraft = Minecraft.getInstance();
-        if (minecraft.player == null) return;
+        if (minecraft.player == null || !ConfigManager.generalConfig().enhanced_boss_bars_enabled) return;
 
         BossBars bars = new NeoForgeBossBars(((BossHealthOverlayMixin) minecraft.gui.getBossOverlay()).enhancedBossBars$getEvents());
 

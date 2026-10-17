@@ -31,11 +31,16 @@ public class BossBarRender {
 
         BossBarData boss_bar = entry.data();
 
-        drawHealth(bridge, boss_bar, layout, textures, percent);
-        drawOverlay(bridge, boss_bar, layout, textures);
+        if (boss_bar.health_bar_before_overlay()){
+            drawHealth(bridge, boss_bar, layout, textures, percent);
+            drawOverlay(bridge, layout, textures);
+        }
+        else{
+            drawOverlay(bridge, layout, textures);
+            drawHealth(bridge, boss_bar, layout, textures, percent);
+        }
 
         if (entry.generic()) drawName(bridge, entry, layout, name);
-
     }
 
     private void drawHealth(BossBarGraphics bridge, BossBarData boss_bar, BossBarLayout layout, BossBarTextures textures, float percent) {
@@ -64,7 +69,7 @@ public class BossBarRender {
         );
     }
 
-    private void drawOverlay(BossBarGraphics bridge, BossBarData boss_bar, BossBarLayout layout, BossBarTextures textures) {
+    private void drawOverlay(BossBarGraphics bridge        , BossBarLayout layout, BossBarTextures textures) {
         bridge.drawTexture(
                 textures.overlay(),
                 layout.overlay_x(),

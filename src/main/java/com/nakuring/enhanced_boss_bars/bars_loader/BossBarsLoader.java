@@ -3,6 +3,7 @@ package com.nakuring.enhanced_boss_bars.bars_loader;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.nakuring.enhanced_boss_bars.BossBarsManager;
+import com.nakuring.enhanced_boss_bars.config.ConfigManager;
 import com.nakuring.enhanced_boss_bars.interfaces.Platform;
 import com.nakuring.enhanced_boss_bars.util.BossBarData;
 import com.nakuring.enhanced_boss_bars.util.BossBarKey;
@@ -110,6 +111,8 @@ public class BossBarsLoader {
 
                                 json.second_phase_overlay_width,
                                 json.second_phase_overlay_height,
+                                json.second_phase_overlay_offset_x,
+                                json.second_phase_overlay_offset_y,
 
                                 json.second_phase_health_background_texture_width,
                                 json.second_phase_health_background_texture_height,
@@ -125,7 +128,9 @@ public class BossBarsLoader {
                                 json.second_phase_overlay_texture_coord_x,
                                 json.second_phase_overlay_texture_coord_y,
 
-                                json.threshold_phase
+                                json.threshold_phase,
+
+                                json.health_bar_before_overlay
                         )
                 );
 
@@ -136,6 +141,10 @@ public class BossBarsLoader {
                         e
                 );
             }
+        }
+
+        if (BossBarsManager.migrateTranslatedConfigKeys()) {
+            ConfigManager.save();
         }
 
         BossBarsManager.applyAuthorSelections();
@@ -167,6 +176,12 @@ public class BossBarsLoader {
         }
         if (json.second_phase_overlay_height == null) {
             json.second_phase_overlay_height = json.overlay_height;
+        }
+        if (json.second_phase_overlay_offset_x == null) {
+            json.second_phase_overlay_offset_x = json.overlay_offset_x;
+        }
+        if (json.second_phase_overlay_offset_y == null) {
+            json.second_phase_overlay_offset_y = json.overlay_offset_y;
         }
 
         if (json.second_phase_health_background_texture_width == null) {

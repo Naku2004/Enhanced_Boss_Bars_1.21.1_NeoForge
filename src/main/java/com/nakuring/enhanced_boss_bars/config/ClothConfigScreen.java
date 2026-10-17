@@ -20,6 +20,7 @@ import static com.nakuring.enhanced_boss_bars.EnhancedBossBars.getModName;
 public class ClothConfigScreen {
 
     private static me.shedaniel.clothconfig2.gui.ClothConfigScreen current_screen;
+    public static BooleanListEntry enhanced_boss_bars_enabled_entry;
     public static IntegerSliderEntry scale_entry;
     public static IntegerSliderEntry horizontal_position_entry;
     public static IntegerSliderEntry vertical_position_entry;
@@ -46,6 +47,16 @@ public class ClothConfigScreen {
         ConfigCategory general = builder.getOrCreateCategory(
                 Component.literal("General")
         );
+
+
+        enhanced_boss_bars_enabled_entry = entryBuilder
+                .startBooleanToggle(
+                        Component.literal("Enhanced boss bars enabled"),
+                        general_config.enhanced_boss_bars_enabled
+                )
+                .setDefaultValue(true)
+                .setSaveConsumer(value -> general_config.enhanced_boss_bars_enabled = value)
+                .build();
 
         scale_entry = entryBuilder
                 .startIntSlider(
@@ -167,6 +178,7 @@ public class ClothConfigScreen {
                 .setExpanded(true)
                 .build();
 
+        general.addEntry(enhanced_boss_bars_enabled_entry);
         general.addEntry(position);
         general.addEntry(boss_bars);
         general.addEntry(preview);
@@ -213,7 +225,7 @@ public class ClothConfigScreen {
                                         authors.toArray(new String[0]),
                                         selected_author
                                 )
-                                .setSaveConsumer(value -> bar_config.selected_author = (String) value)
+                                .setSaveConsumer(value -> bar_config.selected_author = value)
                                 .build();
 
                         category.addEntry(
@@ -221,6 +233,7 @@ public class ClothConfigScreen {
                                                 Component.translatable(boss_name_key),
                                                 List.of(enabled_entry, author_entry)
                                         )
+                                        .setExpanded(true)
                                         .build()
                         );
                     } else {
@@ -229,6 +242,7 @@ public class ClothConfigScreen {
                                                 Component.translatable(boss_name_key),
                                                 List.of(enabled_entry)
                                         )
+                                        .setExpanded(true)
                                         .build()
                         );
                     }

@@ -1,0 +1,30 @@
+{
+  "author": "Bosses' Rise (Fancy)",
+  "key": "entity.block_factorys_bosses.infernal_dragon",
+  "type": "translation",
+  "mod_id": "block_factorys_bosses",
+
+  "health_color_texture": "block_factorys_bosses:textures/gui/bossbar/dragon/bar.png",
+  "overlay_texture": "block_factorys_bosses:textures/gui/bossbar/dragon/complex.png",
+
+  "health_bar_width": 182,
+  "health_bar_height": 5,
+  "health_offset_y": 18,
+
+  "overlay_width": 266,
+  "overlay_height": 46,
+
+  "health_color_texture_width": 288,
+  "health_color_texture_height": 76,
+
+  "overlay_texture_width": 288,
+  "overlay_texture_height": 76,
+
+  "health_color_texture_coord_x": 53,
+  "health_color_texture_coord_y": 34,
+
+  "overlay_texture_coord_x": 11,
+  "overlay_texture_coord_y": 16,
+
+  "health_bar_before_overlay": false
+}

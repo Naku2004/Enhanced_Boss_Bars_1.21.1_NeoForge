@@ -1,0 +1,31 @@
+{
+  "author": "Bosses' Rise (Simple)",
+  "key": "entity.block_factorys_bosses.sandworm",
+  "type": "translation",
+  "mod_id": "block_factorys_bosses",
+
+  "health_color_texture": "block_factorys_bosses:textures/gui/bossbar/worm/bar.png",
+  "overlay_texture": "block_factorys_bosses:textures/gui/bossbar/worm/simple.png",
+
+  "health_bar_width": 182,
+  "health_bar_height": 5,
+  "health_offset_y": 10,
+
+  "overlay_width": 190,
+  "overlay_height": 19,
+  "overlay_offset_x": 0,
+
+  "health_color_texture_width": 288,
+  "health_color_texture_height": 76,
+
+  "overlay_texture_width": 288,
+  "overlay_texture_height": 76,
+
+  "health_color_texture_coord_x": 53,
+  "health_color_texture_coord_y": 34,
+
+  "overlay_texture_coord_x": 49,
+  "overlay_texture_coord_y": 24,
+
+  "health_bar_before_overlay": false
+}

@@ -40,6 +40,8 @@ public record BossBarData(
 
         int second_phase_overlay_width,
         int second_phase_overlay_height,
+        int second_phase_overlay_offset_x,
+        int second_phase_overlay_offset_y,
 
         int second_phase_health_background_texture_width,
         int second_phase_health_background_texture_height,
@@ -55,7 +57,9 @@ public record BossBarData(
         int second_phase_overlay_texture_coord_x,
         int second_phase_overlay_texture_coord_y,
 
-        double threshold_phase
+        double threshold_phase,
+
+        boolean health_bar_before_overlay
 ) {
 
     public boolean hasSecondPhase() {
